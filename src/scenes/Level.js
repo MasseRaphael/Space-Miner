@@ -6,6 +6,7 @@ export default class Level extends Phaser.Scene
 {
 
     score;
+    
 
     constructor()
     {
@@ -42,6 +43,17 @@ export default class Level extends Phaser.Scene
         const styleScore = {fontSize: 20};
         this.scoreText = this.add.text(10, -120, `Score: ${this.score}`, styleScore);
 
+        //  Augmentation du score
+        let truc = this;
+        this.mine.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
+            truc.collectScore()
+        });
+
+        //  Création d'un timer
+        
+
+        
+
 
     }
 
@@ -54,11 +66,14 @@ export default class Level extends Phaser.Scene
 
     update()
     {
-        let truc = this;
-        this.mine.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
-            truc.collectScore()
+        let timer = this.time.addEvent({
+            delay: 2000,
+            callback: this.collectScore(),
+            loop: true
+            
         });
-        
+
+
     }
 
     
