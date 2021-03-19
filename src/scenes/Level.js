@@ -49,8 +49,14 @@ export default class Level extends Phaser.Scene
             truc.collectScore()
         });
 
-        //  Création d'un timer
-        
+        //  Création d'un timer? (Itère une fois seulement)
+        let timer = this.time.addEvent({
+            delay: 2000,
+            callback: this.collectScore(),
+            callbackScope: this,
+            loop: true
+            
+        });
 
         
 
@@ -66,12 +72,7 @@ export default class Level extends Phaser.Scene
 
     update()
     {
-        let timer = this.time.addEvent({
-            delay: 2000,
-            callback: this.collectScore(),
-            loop: true
-            
-        });
+        
 
 
     }
