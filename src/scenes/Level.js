@@ -35,7 +35,7 @@ export default class Level extends Phaser.Scene
     {
 
         //  Pose des images
-        this.add.tileSprite(0, 0, 1280, 720, 'space1').setScale(1);
+        this.add.tileSprite(640, 360, 1280, 720, 'space1').setScale(1);
         this.mine = this.physics.add.image(256, 556, 'mine');
 
 
