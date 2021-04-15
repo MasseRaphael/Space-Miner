@@ -59,25 +59,25 @@ export default class Level extends Phaser.Scene
         });
 
         //  Création d'un timer? (Itère une fois seulement)
-        let timer = this.time.addEvent({
+        /*let timer = this.time.addEvent({
             delay: 2000,
-            callback: this.collectScore(),
+            callback: this.collectScore,
             callbackScope: this,
             loop: true
-            
-        });
+        });*/
 
         // Gestion des collisions
 
-        this.physics.add.collider(this.mine, this.enemy, this.perteArgent(), undefined, this);
+        this.physics.add.collider(this.mine, this.enemy, this.perteArgent(), null, this);
 
     }
 
-    collectScore()
+    collectScore(dt)
     {
-        this.score++;
+        this.score += dt;
+
         //  const value = `Score: ${this.score}`;
-        this.scoreText.text = `Score: ${this.score}`;
+        this.scoreText.text = `Score: ${Math.floor(this.score)}`;
     }
 
     perteArgent()
@@ -89,12 +89,12 @@ export default class Level extends Phaser.Scene
         //  this.enemy.destroy();
     }
 
-    avancerEnemy()
+    avancerEnemy(dt)
     {
         if (this.posx >= 156)
         {
-            this.posx--;
-            console.log(this.posx);
+            this.posx -= dt;
+            this.enemy.setPosition(this.posx, 556);
         }
         else
         {
@@ -106,15 +106,14 @@ export default class Level extends Phaser.Scene
 
     //----------------------------------------------------UPDATE--------------------------------------------------------------//
 
-    update()
+    update(total, dt)
     {
-        this.avancerEnemy();
-
-
+        this.collectScore(this.CalculDelta(dt, 1))
+        this.avancerEnemy(dt / 1000 * 10);
     }
 
-    
-
-
-
+    CalculDelta(dt, ups)
+    {
+        return (dt / 1000 * ups);
+    }
 }
