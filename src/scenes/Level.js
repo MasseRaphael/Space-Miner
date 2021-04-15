@@ -32,13 +32,20 @@ export default class Level extends Phaser.Scene
 
     }
 
+    //----------------------------------------------------CREATE--------------------------------------------------------------//
+
     create()
     {
 
         //  Pose des images
+
+            //  Background
         this.add.tileSprite(640, 360, 1280, 720, 'space1').setScale(1);
+            //  Mine
         this.mine = this.physics.add.image(156, 556, 'mine1');
-        this.enemy = this.physics.add.image(1200, 556, 'enemy1');
+            //Ennemi
+        this.posx = 1200;
+        this.enemy = this.physics.add.image(this.posx, 556, 'enemy1');
         this.enemy.rotation = 4.7;
 
         //  Définition du score
@@ -62,8 +69,7 @@ export default class Level extends Phaser.Scene
 
         // Gestion des collisions
 
-        this.physics.add.collider(this.mine, this.enemy, perteArgent(), undefined, this);
-
+        this.physics.add.collider(this.mine, this.enemy, this.perteArgent(), undefined, this);
 
     }
 
@@ -74,9 +80,26 @@ export default class Level extends Phaser.Scene
         this.scoreText.text = value;
     }
 
+    perteArgent()
+    {
+        this.score = this.score - (Math.floor(0.20*this.score));
+        const value = `Score: ${this.score}`;
+        this.scoreText.text = value;
+        //  this.enemy.destroy();
+    }
+
+    avancerEnemy()
+    {
+        this.posx--;
+        console.log(this.posx);
+    }
+
+    //----------------------------------------------------UPDATE--------------------------------------------------------------//
+
     update()
     {
-        this.enemy
+        
+
 
 
     }
