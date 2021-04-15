@@ -41,7 +41,7 @@ export default class Level extends Phaser.Scene
 
         //  Définition du score
         const styleScore = {fontSize: 20};
-        this.scoreText = this.add.text(10, -120, `Score: ${this.score}`, styleScore);
+        this.scoreText = this.add.text(10, 0, `Score: ${this.score}`, styleScore);
 
         //  Augmentation du score
         let truc = this;
