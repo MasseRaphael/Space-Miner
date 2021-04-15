@@ -76,15 +76,16 @@ export default class Level extends Phaser.Scene
     collectScore()
     {
         this.score++;
-        const value = `Score: ${this.score}`;
-        this.scoreText.text = value;
+        //  const value = `Score: ${this.score}`;
+        this.scoreText.text = `Score: ${this.score}`;
     }
 
     perteArgent()
     {
         this.score = this.score - (Math.floor(0.20*this.score));
-        const value = `Score: ${this.score}`;
-        this.scoreText.text = value;
+        //  const value = `Score: ${this.score}`;
+
+        this.scoreText.text = `Score: ${this.score}`;
         //  this.enemy.destroy();
     }
 
@@ -98,8 +99,7 @@ export default class Level extends Phaser.Scene
 
     update()
     {
-        
-
+        this.avancerEnemy();
 
 
     }
