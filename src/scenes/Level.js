@@ -23,7 +23,8 @@ export default class Level extends Phaser.Scene
     {
         //  Preload des images
         this.load.image('space1', 'assets/background/purple.png')
-        this.load.image('mine', 'assets/sprite/meteor_squareDetailedLarge.png')
+        this.load.image('mine1', 'assets/sprite/meteor_squareDetailedLarge.png')
+        this.load.image('enemy1', 'assets/sprite/enemy_A.png')
 
         //  Preload des contrôles (Souris)
         this.pointer = this.input.activePointer;
@@ -36,8 +37,9 @@ export default class Level extends Phaser.Scene
 
         //  Pose des images
         this.add.tileSprite(640, 360, 1280, 720, 'space1').setScale(1);
-        this.mine = this.physics.add.image(256, 556, 'mine');
-
+        this.mine = this.physics.add.image(156, 556, 'mine1');
+        this.enemy = this.physics.add.image(1200, 556, 'enemy1');
+        this.enemy.rotation = 4.7;
 
         //  Définition du score
         const styleScore = {fontSize: 20};
@@ -58,7 +60,9 @@ export default class Level extends Phaser.Scene
             
         });
 
-        
+        // Gestion des collisions
+
+        this.physics.add.collider(this.mine, this.enemy, perteArgent(), undefined, this);
 
 
     }
@@ -72,7 +76,7 @@ export default class Level extends Phaser.Scene
 
     update()
     {
-        
+        this.enemy
 
 
     }
