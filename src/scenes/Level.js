@@ -16,7 +16,7 @@ export default class Level extends Phaser.Scene
 
     init()
     {
-        this.score = 500;
+        this.score = 5000;
     }
 
     preload()
@@ -91,8 +91,17 @@ export default class Level extends Phaser.Scene
 
     avancerEnemy()
     {
-        this.posx--;
-        console.log(this.posx);
+        if (this.posx >= 156)
+        {
+            this.posx--;
+            console.log(this.posx);
+        }
+        else
+        {
+            this.perteArgent();
+            return;
+        }
+
     }
 
     //----------------------------------------------------UPDATE--------------------------------------------------------------//
