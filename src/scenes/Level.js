@@ -70,6 +70,7 @@ export default class Level extends Phaser.Scene
 
         this.physics.add.collider(this.mine, this.enemy, this.perteArgent(), null, this);
 
+
     }
 
     collectScore(dt)
