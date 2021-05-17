@@ -29,7 +29,10 @@ export default class Level extends Phaser.Scene
 
     create()
     {
-        
+
+        this.add.tileSprite(640, 360, 1280, 720, 'space1').setScale(1);
+
+
     }
 
     update()
