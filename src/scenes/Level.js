@@ -55,7 +55,7 @@ export default class Level extends Phaser.Scene
         //  Augmentation du score
         let truc = this;
         this.mine.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
-            truc.collectScore()
+            truc.collectScore(10)
         });
 
         //  Création d'un timer? (Itère une fois seulement)
@@ -82,7 +82,7 @@ export default class Level extends Phaser.Scene
 
     perteArgent()
     {
-        this.score = this.score - (Math.floor(0.20*this.score));
+        this.score = Math.floor(this.score - (Math.floor(0.20*this.score)));
         //  const value = `Score: ${this.score}`;
 
         this.scoreText.text = `Score: ${this.score}`;
@@ -109,10 +109,10 @@ export default class Level extends Phaser.Scene
     update(total, dt)
     {
         this.collectScore(this.CalculDelta(dt, 1))
-        this.avancerEnemy(dt / 1000 * 10);
+        this.avancerEnemy(dt / 1000 * 100);
     }
 
-    CalculDelta(dt, ups)
+    CalculDelta(dt, ups)    //  Unité par secondes
     {
         return (dt / 1000 * ups);
     }
