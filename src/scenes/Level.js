@@ -39,36 +39,36 @@ export default class Level extends Phaser.Scene
         this.enemies = this.physics.add.group({
             classType: Enemy
         });
-        this.enemies.get(640, 460, 'enemy1');
+        let enemy = this.enemies.get(640, 460, 'enemy1');
 
         const style = { color: '#fff', fontSize: 24};
-        this.add.text(640, 150, `hp: ${this.enemies.hp}`, style)
+        this.add.text(640, 150, `hp: ${enemy.hp}`, style)
             .setOrigin(0.5, 0);
-        this.add.text(640, 250, `speed: ${this.enemies.speed}`, style)
+        this.add.text(640, 250, `speed: ${enemy.speed}`, style)
             .setOrigin(0.5, 0);
 
         this.mines = this.physics.add.group({
             classType: Mines
         });
 
-        this.mines.get(320, 460, 'mine1');
+        let mine = this.mines.get(320, 460, 'mine1');
 
-        this.add.text(320, 150, `level: ${this.mines.level}`, style)
+        this.add.text(320, 150, `level: ${mine.level}`, style)
             .setOrigin(0.5, 0);
-        this.add.text(320, 250, `speed: ${this.mines.speed}`, style)
+        this.add.text(320, 250, `speed: ${mine.speed}`, style)
             .setOrigin(0.5, 0);
 
         this.turrets = this.physics.add.group({
             classType: Turrets
         });
 
-        this.turrets.get(960, 460, 'enemy1');
+        let turret = this.turrets.get(960, 460, 'enemy1');
 
-        this.add.text(960, 150, `level: ${this.turrets.level}`, style)
+        this.add.text(960, 150, `level: ${turret.level}`, style)
             .setOrigin(0.5, 0);
-        this.add.text(960, 250, `speed: ${this.turrets.speed}`, style)
+        this.add.text(960, 250, `speed: ${turret.speed}`, style)
             .setOrigin(0.5, 0);
-        this.add.text(960, 350, `damages: ${this.turrets.damages}`, style)
+        this.add.text(960, 350, `damages: ${turret.damages}`, style)
             .setOrigin(0.5, 0);
 
 
