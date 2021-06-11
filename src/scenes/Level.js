@@ -68,7 +68,7 @@ export default class Level extends Phaser.Scene
 
         // Gestion des collisions
 
-        this.physics.add.collider(this.mine, this.enemy, this.perteArgent(), null, this);
+        this.physics.add.collider(this.mine, this.enemy, this.perteArgent, null, this);
 
 
     }
@@ -81,28 +81,30 @@ export default class Level extends Phaser.Scene
         this.scoreText.text = `Score: ${Math.floor(this.score)}`;
     }
 
-    perteArgent()
-    {
-        this.score = Math.floor(this.score - (Math.floor(0.20*this.score)));
-        //  const value = `Score: ${this.score}`;
-
-        this.scoreText.text = `Score: ${this.score}`;
-        //  this.enemy.destroy();
-    }
-
     avancerEnemy(dt)
     {
-        if (this.posx >= 156)
+        if (this.posx >= 280)
         {
             this.posx -= dt;
             this.enemy.setPosition(this.posx, 556);
         }
         else
         {
-            this.perteArgent();
-            return;
+
+            this.pox = 1200;
+            this.enemy = this.physics.add.image(this.posx, 556, 'enemy1');
+            this.enemy.setPosition(this.posx, 556);
         }
 
+    }
+
+    perteArgent()
+    {
+        this.score = Math.floor(this.score - (Math.floor(0.20*this.score)));
+        //  const value = `Score: ${this.score}`;
+
+        this.scoreText.text = `Score: ${this.score}`;
+        this.enemy.destroy(true);
     }
 
     //----------------------------------------------------UPDATE--------------------------------------------------------------//
