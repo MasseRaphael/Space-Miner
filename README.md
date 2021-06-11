@@ -6,3 +6,4 @@ Game concept (en phase d'équilibrage): https://docs.google.com/document/d/e/2PA
 
 trello : https://trello.com/b/woTReqrJ/projet-space-miner.
 
+Demo en cours de développement : https://space-miner.vercel.app/
