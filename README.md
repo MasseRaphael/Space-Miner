@@ -8,7 +8,5 @@ Projet d'école sur la création d'un idle game de type Tower Defense sur le the
 ## [Trello](https://trello.com/b/woTReqrJ/projet-space-miner)
 
 ## Demo
-en cours de développement : sur [Vercel](https://space-miner.vercel.app/).
-ou.
-[Itch.io](https://ichbal76.itch.io/space-miner). avec le mot de passe: `Carabistouille2021#`
+en cours de développement : sur [Vercel](https://space-miner.vercel.app/) ou [Itch.io](https://ichbal76.itch.io/space-miner) avec le mot de passe: `Carabistouille2021#`.
 
